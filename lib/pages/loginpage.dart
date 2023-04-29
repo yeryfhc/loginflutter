@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../widgets/widgets.dart';
 import 'register_page.dart';
@@ -33,8 +34,16 @@ class LoginPage extends StatelessWidget {
             const  ButtomLoginRegister(text: 'Login',),
              SizedBox(height: height/50,),
            ButtonBajo(name: 'Dont have an acount?',text: 'Register',ontap: (){
-           Navigator.push(context, MaterialPageRoute(builder: (context)=> const RegisterPage()));
-
+          //  Navigator.push(context, MaterialPageRoute(builder: (context)=> const RegisterPage()));
+             Navigator.push(
+                  context,
+                  PageTransition(
+                    type: PageTransitionType.leftToRight,
+                    child: const RegisterPage(),
+                  
+                    duration: const  Duration(milliseconds: 200),
+                  ),
+                );
            },)
           ],
         ),
